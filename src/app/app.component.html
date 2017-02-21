@@ -1,0 +1,17 @@
+<!-- <app-demo-form></app-demo-form>-->
+<div>
+{{data.message}}
+</div>
+<div> {{hostURL}} </div>
+
+ <ul>
+   <li *ngFor="let city of data.cities">
+        {{city.Name}}
+    </li>
+</ul>
+
+<app-demo-form *ngFor="let city of data.cities"
+    [cityData]="city"
+    (processedData)="postData(city.Index, $event.text)"
+    >
+</app-demo-form>
